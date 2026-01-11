@@ -1,0 +1,25 @@
+.div1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+
+.div2{
+    width: 400px;
+    height: 500px;
+    background-color: aquamarine;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.div3{
+    margin: 25px;
+}
+
+
