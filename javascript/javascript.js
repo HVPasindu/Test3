@@ -5,7 +5,11 @@ function Login() {
     var in_name = document.getElementById('email').value;
     var in_password = document.getElementById('password').value;
 
-    if (in_name === name && in_password === password) {
+    if (in_name == "" || in_password == "") {
+        alert("you must fill this....");
+    }
+
+    else if (in_name === name && in_password === password) {
         alert("you are login scussusfull");
         window.location.href = "addChild.html"
     } else {
@@ -26,17 +30,53 @@ function Add() {
     var address = document.getElementById('Address').value;
     var salary = document.getElementById('Salary').value;
 
-    var salary = parseFloat(salary);
+    if (nic == "" || name == "" || address == "" || salary == "") {
+        alert("please full this all");
+    } else {
 
-    var cus = {
-        nic :nic,
-        name: name,
-        address: address,
-        salary: salary,
+        var salary = parseFloat(salary);
 
+
+
+        var cus = {
+            nic: nic,
+            name: name,
+            address: address,
+            salary: salary,
+
+        }
+
+        customer.push(cus);
+        console.log(customer);
+        displayDetails()
+
+        var nic = document.getElementById('nic').value = "";
+        var name = document.getElementById('Name').value = "";
+        var address = document.getElementById('Address').value = "";
+        var salary = document.getElementById('Salary').value = "";
     }
 
-    customer.push(cus);
-    console.log(customer);
+}
+
+
+function displayDetails() {
+
+    var add = document.getElementById('show');
+    add.innerHTML = '';
+
+    customer.forEach(function (item) {
+
+        let row = document.createElement('tr');
+
+        row.innerHTML = `
+            <td>${item.nic}</td>
+            <td>${item.name}</td>
+            <td>${item.address}</td>
+            <td>${item.salary}</td>
+        `;
+
+        add.appendChild(row);
+    });
+
 
 }
